@@ -1,0 +1,13 @@
+@import "../../../styles/abstracts/index";
+
+.paragraph {
+  color: $clr-text;
+
+  @include fontSize(16);
+  line-height: calculateRem(22);
+  margin-bottom: calculateRem(10);
+
+  &--inverted {
+    color: $clr-text-inverted;
+  }
+}

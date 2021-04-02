@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+a,
+a:link,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+// TYPOGRAPHY
+
+html,
+body {
+  font-size: 100%; // 1 rem = 16px
+  font-family: $font-primary;
+
+  font-weight: 400;
+  line-height: calculateRem(22);
+
+  box-sizing: border-box;
+  color: $clr-text;
+}

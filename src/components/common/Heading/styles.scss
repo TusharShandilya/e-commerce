@@ -1,0 +1,48 @@
+@import "../../../styles/abstracts/index";
+
+.heading {
+  color: $clr-text;
+  font-weight: 700;
+
+  &--1 {
+    @include fontSize(48);
+    line-height: calculateRem(54);
+    margin-top: calculateRem(20);
+    margin-bottom: calculateRem(10);
+  }
+
+  &--2 {
+    @include fontSize(42);
+    line-height: calculateRem(48);
+    margin-top: calculateRem(20);
+    margin-bottom: calculateRem(10);
+  }
+  &--3 {
+    @include fontSize(36);
+    line-height: calculateRem(42);
+    margin-top: calculateRem(20);
+    margin-bottom: calculateRem(10);
+  }
+  &--4 {
+    @include fontSize(30);
+    line-height: calculateRem(36);
+    margin-top: calculateRem(10);
+    margin-bottom: calculateRem(10);
+  }
+  &--5 {
+    font-size: calculateRem(24);
+    line-height: calculateRem(30);
+    margin-top: calculateRem(10);
+    margin-bottom: calculateRem(10);
+  }
+  &--6 {
+    @include fontSize(18);
+    line-height: calculateRem(26);
+    margin-top: calculateRem(10);
+    margin-bottom: calculateRem(10);
+  }
+
+  &--inverted {
+    color: $clr-text-inverted;
+  }
+}
