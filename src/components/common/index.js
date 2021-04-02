@@ -1,3 +1,4 @@
-export * from "./Heading";
-export * from "./Paragraph";
 export * from "./Button";
+export * from "./Heading";
+export * from "./Logo";
+export * from "./Paragraph";

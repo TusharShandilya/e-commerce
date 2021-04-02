@@ -1,0 +1,24 @@
+@import "../../../styles/abstracts/index";
+
+.logo {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &--xs {
+    width: calculateRem(150);
+  }
+  &--sm {
+    width: calculateRem(200);
+  }
+  &--md {
+    width: calculateRem(250);
+  }
+  &--lg {
+    width: calculateRem(325);
+  }
+  &--xl {
+    width: calculateRem(400);
+  }
+}
