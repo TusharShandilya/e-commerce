@@ -1,0 +1,122 @@
+@import "../../../styles/abstracts/index";
+
+.button {
+  @include fontSize(16);
+  line-height: calculateRem(22);
+  text-align: center;
+
+  display: inline-block;
+  margin: 0 calculateRem(2);
+  outline: 0;
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &--link {
+  }
+
+  &--filled {
+    font-weight: 500;
+
+    padding: calculateRem(12) calculateRem(24);
+    border: 2px solid $clr-primary;
+    border-radius: 20rem;
+
+    color: $clr-text-inverted;
+    background: $clr-primary;
+
+    &:hover {
+      box-shadow: 0 calculateRem(10) calculateRem(20) calculateRem(-10)
+        rgb($clr-primary, 0.9);
+
+      transform: translate(0, -3px);
+    }
+
+    &:active {
+      box-shadow: 0 calculateRem(7) calculateRem(20) calculateRem(-10)
+        rgb($clr-primary, 0.9);
+
+      transform: translate(0, -1px);
+    }
+
+    &-disabled {
+      &:hover,
+      &:active {
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  &--outlined {
+    color: $clr-text;
+    padding: calculateRem(10) calculateRem(22);
+
+    border: 2px solid $clr-border;
+    border-radius: 20rem;
+
+    background: $clr-bg-primary;
+
+    &:hover {
+      color: $clr-text-inverted;
+      background: $clr-primary;
+      border: 2px solid $clr-primary;
+    }
+
+    &-disabled {
+      &:hover {
+        color: $clr-text;
+        background: $clr-bg-primary;
+        border: 2px solid $clr-border;
+      }
+    }
+  }
+
+  &--underlined {
+    border: none;
+    background: none;
+
+    position: relative;
+    padding: calculateRem(4) 0;
+    margin-bottom: 2px;
+
+    &::before {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      background-color: $clr-primary;
+      height: calculateRem(3);
+      width: 100%;
+      bottom: 0;
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      color: $clr-text-inverted;
+
+      &::before {
+        height: 100%;
+      }
+    }
+
+    &-disabled {
+      &:hover {
+        color: $clr-text;
+
+        &::before {
+          height: calculateRem(3);
+        }
+      }
+    }
+  }
+
+  &--loading {
+    opacity: 0.7;
+    cursor: progress;
+  }
+
+  &--disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
