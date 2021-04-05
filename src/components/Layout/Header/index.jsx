@@ -1,5 +1,6 @@
 import { BEMHelper } from "../../../utils";
 import { Logo } from "../../common";
+import { Navigation } from "./Navigation";
 
 import "./styles.scss";
 
@@ -15,7 +16,7 @@ export const Header = () => {
           <span>search-bar</span>
           <span>cart</span>
         </div>
-        <nav className="navigation">Nav</nav>
+        <Navigation />
       </div>
     </header>
   );

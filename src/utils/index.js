@@ -18,3 +18,7 @@ export const BEMHelper = (block) => (
       : bemClasses;
   return className;
 };
+
+export const convertKebabCase = (text) => {
+  return text.toLowerCase().split(" ").join("-");
+};
