@@ -1,0 +1,43 @@
+@import "../../../../styles/abstracts/index";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: calculateRem(20);
+
+  @include fontSize(16);
+  font-weight: 600;
+
+  &__link {
+    text-transform: capitalize;
+    padding-bottom: calculateRem(8);
+    position: relative;
+
+    &:active,
+    &:link,
+    &:visited {
+      color: $clr-text;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: calculateRem(3);
+      width: 100%;
+      bottom: calculateRem(-3);
+      left: 0;
+      background-color: $clr-primary;
+
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: all 0.2s;
+    }
+
+    &--active,
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

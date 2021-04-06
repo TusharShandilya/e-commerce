@@ -7,6 +7,7 @@ import { BEMHelper, convertKebabCase } from "../../../../utils";
 import "./styles.scss";
 
 export const Navigation = () => {
+  // TODO: grab form store
   const [links, setLinks] = useState([]);
 
   const classHelper = BEMHelper("nav");
@@ -28,10 +29,12 @@ export const Navigation = () => {
     <nav className={classHelper("")}>
       <NavLink
         to="/"
+        exact
+        strict
         activeClassName={classHelper("link", ["active"])}
         className={classHelper("link")}
       >
-        HOME
+        home
       </NavLink>
       {links.map((link, idx) => (
         <NavLink
@@ -40,7 +43,7 @@ export const Navigation = () => {
           activeClassName={classHelper("link", ["active"])}
           className={classHelper("link")}
         >
-          {link.toUpperCase()}
+          {link}
         </NavLink>
       ))}
     </nav>

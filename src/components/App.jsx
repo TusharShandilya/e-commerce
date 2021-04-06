@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { Routing } from "./helpers/Routing";
+import { Routing } from "./pages/routing";
 import { Layout } from "./Layout";
 
 export const App = () => {
