@@ -1,29 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import { getAllCategoies } from "../../../../api/axios";
+import { actions } from "../../../../store/actions";
+
 import { BEMHelper, convertKebabCase } from "../../../../utils";
 
 import "./styles.scss";
 
 export const Navigation = () => {
-  // TODO: grab form store
-  const [links, setLinks] = useState([]);
+  const { categories } = useSelector((state) => state.directory);
+  const dispatch = useDispatch();
 
   const classHelper = BEMHelper("nav");
 
   useEffect(() => {
-    getCategories();
+    dispatch(actions.storeCategories());
   }, []);
-
-  //   TODO: convert to hook
-  const getCategories = async () => {
-    const res = await getAllCategoies();
-
-    if (res.ok) {
-      setLinks(res.data);
-    }
-  };
 
   return (
     <nav className={classHelper("")}>
@@ -36,14 +29,14 @@ export const Navigation = () => {
       >
         home
       </NavLink>
-      {links.map((link, idx) => (
+      {categories.map((category, idx) => (
         <NavLink
           key={`link-${idx}`}
-          to={`/category/${convertKebabCase(link)}`}
+          to={`/category/${convertKebabCase(category)}`}
           activeClassName={classHelper("link", ["active"])}
           className={classHelper("link")}
         >
-          {link}
+          {category}
         </NavLink>
       ))}
     </nav>

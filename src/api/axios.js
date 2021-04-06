@@ -1,7 +1,7 @@
 import axios from "axios";
 import { allCategoriesEndpoint } from "./routes";
 
-export const getAllCategoies = async () => {
+export const getAllCategories = async () => {
   const result = await axios.get(allCategoriesEndpoint());
 
   //   TODO: implement negative scenarios
