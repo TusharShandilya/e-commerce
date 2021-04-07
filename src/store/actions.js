@@ -1,7 +1,7 @@
-import { storeCategories } from "./directory/directory-actions";
+import { getCategories } from "./directory/directory-actions";
 
 export const actions = {
-  storeCategories,
+  getCategories,
 };
 
 export default actions;

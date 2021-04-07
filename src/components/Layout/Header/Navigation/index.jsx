@@ -1,22 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import { actions } from "../../../../store/actions";
-
-import { BEMHelper, convertKebabCase } from "../../../../utils";
+import { BEMHelper } from "../../../../utils";
 
 import "./styles.scss";
 
 export const Navigation = () => {
   const { categories } = useSelector((state) => state.directory);
-  const dispatch = useDispatch();
 
   const classHelper = BEMHelper("nav");
-
-  useEffect(() => {
-    dispatch(actions.storeCategories());
-  }, []);
 
   return (
     <nav className={classHelper("")}>
@@ -32,11 +25,11 @@ export const Navigation = () => {
       {categories.map((category, idx) => (
         <NavLink
           key={`link-${idx}`}
-          to={`/category/${convertKebabCase(category)}`}
+          to={`/category/${category.linkUrl}`}
           activeClassName={classHelper("link", ["active"])}
           className={classHelper("link")}
         >
-          {category}
+          {category.title}
         </NavLink>
       ))}
     </nav>

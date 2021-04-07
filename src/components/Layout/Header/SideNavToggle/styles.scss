@@ -1,0 +1,26 @@
+@import "../../../../styles/abstracts/index";
+
+.sidenav-toggle {
+  display: none;
+}
+
+@include respond(touch-device) {
+  .sidenav-toggle {
+    display: inline-block;
+
+    transition: all 0.2s;
+
+    @include fontSize(30);
+
+    margin-left: calculateRem(10);
+    padding: calculateRem(15);
+    cursor: pointer;
+    z-index: 31;
+    border-radius: 2000px;
+
+    &:hover {
+      color: $clr-primary;
+      background-color: $clr-bg-secondary;
+    }
+  }
+}

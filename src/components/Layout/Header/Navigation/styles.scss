@@ -45,3 +45,9 @@
     }
   }
 }
+
+@include respond(touch-device) {
+  .nav {
+    display: none;
+  }
+}

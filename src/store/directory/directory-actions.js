@@ -1,16 +1,16 @@
 import { DirectoryActionTypes } from "./directory-types";
 import { getAllCategories } from "../../api/axios";
 
-const getCategories = (payload) => ({
+const storeCategories = (payload) => ({
   type: DirectoryActionTypes.GET_CATEGORIES,
   payload,
 });
 
-export const storeCategories = () => {
+export const getCategories = () => {
   return async (dispatch) => {
     const res = await getAllCategories();
     if (res.ok) {
-      dispatch(getCategories(res.data));
+      dispatch(storeCategories(res.data));
     }
   };
 };

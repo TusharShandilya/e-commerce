@@ -1,4 +1,5 @@
 import { DirectoryActionTypes } from "./directory-types";
+import { populateCategories } from "./directory-utils";
 
 const initalState = {
   categories: [],
@@ -9,7 +10,7 @@ export const directoryReducer = (state = initalState, action) => {
     case DirectoryActionTypes.GET_CATEGORIES:
       return {
         ...state,
-        categories: action.payload,
+        categories: populateCategories(action.payload),
       };
     default:
       return state;
