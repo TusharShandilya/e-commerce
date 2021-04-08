@@ -1,0 +1,77 @@
+@import "../../../../styles/abstracts/index";
+
+.directory {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: calculateRem(30);
+
+  margin-top: calculateRem(45);
+  margin-bottom: calculateRem(45);
+
+  &__box {
+    background: $clr-bg-secondary;
+    border-radius: calculateRem($border-rad-lg);
+    height: 33vh;
+    max-height: calculateRem(450);
+    overflow: hidden;
+
+    transition: all 0.2s;
+    padding: calculateRem(20);
+
+    img {
+      height: 100%;
+      width: auto;
+      transition: transform 0.2s;
+    }
+
+    &:hover {
+      box-shadow: 0 calculateRem(10) calculateRem(20) 0 $clr-neutral-10;
+
+      img {
+        transform: scale(1.05);
+      }
+    }
+
+    &:nth-child(1) {
+      grid-column: 1/4;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    &:nth-child(2) {
+      grid-column: 4/6;
+
+      display: flex;
+      flex-direction: column-reverse;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    &:nth-child(3) {
+      grid-column: 1/3;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+
+      .heading {
+        align-self: flex-end;
+      }
+    }
+    &:nth-child(4) {
+      grid-column: 3/6;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+
+      .heading {
+        align-self: center;
+      }
+    }
+  }
+}

@@ -1,9 +1,10 @@
-import { Heading, Page } from "../../common";
+import { Page } from "../../common";
+import Directory from "./Directory";
 
 export const Home = () => {
   return (
     <Page>
-      <Heading style={{ paddingBottom: "200vh" }}>HOME</Heading>
+      <Directory />
     </Page>
   );
 };

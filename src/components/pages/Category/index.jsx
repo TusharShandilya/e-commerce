@@ -25,7 +25,7 @@ export const Category = () => {
   return (
     <>
       <PageHeading>
-        <Heading size="1" className="is-text-captialise has-bg-secondary">
+        <Heading size="1" className="is-text-capitalise has-bg-secondary">
           {pageTitle}
         </Heading>
       </PageHeading>
