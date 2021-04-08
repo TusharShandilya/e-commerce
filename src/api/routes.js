@@ -1,4 +1,4 @@
-import { config } from "../config";
+import { config } from "../env";
 
 const service = {
   products: "/products",

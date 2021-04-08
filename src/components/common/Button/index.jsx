@@ -1,8 +1,7 @@
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import { BEMHelper } from "../../../utils";
+import Loader from "../Loader";
 import "./styles.scss";
 
 export const Button = ({
@@ -30,7 +29,7 @@ export const Button = ({
   if (isLink && (disabled || isLoading)) {
     return (
       <span {...rest} className={classHelper("", modifications, className)}>
-        {isLoading && <FontAwesomeIcon icon={faSpinner} spin />} {children}
+        {isLoading && <Loader />} {children}
       </span>
     );
   }
@@ -70,7 +69,7 @@ export const Button = ({
       onClick={handleClick}
       className={classHelper("", modifications, className)}
     >
-      {isLoading && <FontAwesomeIcon icon={faSpinner} spin />} {children}
+      {isLoading && <Loader />} {children}
     </button>
   );
 };

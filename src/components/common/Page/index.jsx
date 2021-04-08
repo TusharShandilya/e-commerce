@@ -1,7 +1,7 @@
 import "./styles.scss";
 
-export const Page = ({ children }) => {
-  return <div className="page">{children}</div>;
+export const Page = ({ children, className = "" }) => {
+  return <div className={`page ${className}`}>{children}</div>;
 };
 
 export default Page;

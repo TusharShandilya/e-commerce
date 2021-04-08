@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { apiStatus } from "../../../../config/contants";
 
 import { BEMHelper } from "../../../../utils";
+import Loader from "../../../common/Loader";
 
 import "./styles.scss";
 
 export const SideNav = ({ isOpen, toggle }) => {
-  const { categories } = useSelector((state) => state.directory);
+  const { categories, status } = useSelector((state) => state.directory);
 
   const classHelper = BEMHelper("sidenav");
 
@@ -27,16 +29,20 @@ export const SideNav = ({ isOpen, toggle }) => {
         >
           home
         </NavLink>
-        {categories.map((category, idx) => (
-          <NavLink
-            key={`link-${idx}`}
-            to={`/category/${category.linkUrl}`}
-            activeClassName={classHelper("link", ["active"])}
-            className={classHelper("link")}
-          >
-            {category.title}
-          </NavLink>
-        ))}
+        {status === apiStatus.LOADING ? (
+          <Loader />
+        ) : (
+          categories.map((category, idx) => (
+            <NavLink
+              key={`link-${idx}`}
+              to={`/category/${category.linkUrl}`}
+              activeClassName={classHelper("link", ["active"])}
+              className={classHelper("link")}
+            >
+              {category.title}
+            </NavLink>
+          ))
+        )}
       </div>
     </>
   );

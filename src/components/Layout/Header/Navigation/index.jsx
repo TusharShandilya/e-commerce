@@ -1,13 +1,17 @@
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { apiStatus } from "../../../../config/contants";
 
 import { BEMHelper } from "../../../../utils";
+import Loader from "../../../common/Loader";
 
 import "./styles.scss";
 
 export const Navigation = () => {
-  const { categories } = useSelector((state) => state.directory);
+  const { categories, status } = useSelector((state) => state.directory);
 
   const classHelper = BEMHelper("nav");
 
@@ -22,16 +26,20 @@ export const Navigation = () => {
       >
         home
       </NavLink>
-      {categories.map((category, idx) => (
-        <NavLink
-          key={`link-${idx}`}
-          to={`/category/${category.linkUrl}`}
-          activeClassName={classHelper("link", ["active"])}
-          className={classHelper("link")}
-        >
-          {category.title}
-        </NavLink>
-      ))}
+      {status === apiStatus.LOADING ? (
+        <Loader />
+      ) : (
+        categories.map((category, idx) => (
+          <NavLink
+            key={`link-${idx}`}
+            to={`/category/${category.linkUrl}`}
+            activeClassName={classHelper("link", ["active"])}
+            className={classHelper("link")}
+          >
+            {category.title}
+          </NavLink>
+        ))
+      )}
     </nav>
   );
 };

@@ -1,21 +1,31 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { apiStatus } from "../../../config/contants";
 
-import { Heading, Page, PageHeading } from "../../common";
+import { Heading, Loader, Page, PageHeading } from "../../common";
 
 export const Category = () => {
-  const { categories } = useSelector((state) => state.directory);
+  const { categories, status } = useSelector((state) => state.directory);
   const { categoryName } = useParams();
-  const pageTitle = categories.filter(
-    (category) => category.linkUrl === categoryName
-  )[0]?.title;
+
+  const pageTitle =
+    status === apiStatus.LOADING ? (
+      <Loader />
+    ) : (
+      <>
+        {
+          categories.filter((category) => category.linkUrl === categoryName)[0]
+            ?.title
+        }
+        <span className="is-primary">.</span>
+      </>
+    );
 
   return (
     <>
       <PageHeading>
-        <Heading className="is-text-captialise has-bg-secondary">
-          {pageTitle || "Shopsy"}
-          <span className="is-primary">.</span>
+        <Heading size="1" className="is-text-captialise has-bg-secondary">
+          {pageTitle}
         </Heading>
       </PageHeading>
       <Page>Category</Page>
