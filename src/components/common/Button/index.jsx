@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 
 import { BEMHelper } from "../../../utils";
 import Loader from "../Loader";
+
 import "./styles.scss";
+
+// @params variant: filled | outlined | underlined
+// @params to && isLink need to be used together
 
 export const Button = ({
   children,
@@ -10,7 +14,6 @@ export const Button = ({
   isLoading,
   disabled,
   isLink,
-  //   filled | outlined | underlined
   variant = "filled",
   className = "",
   onClick,

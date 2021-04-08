@@ -4,10 +4,9 @@ import { BEMHelper } from "../../../utils";
 
 import "./styles.scss";
 
-export const Logo = ({
-  // xs | sm | md | lg | xl
-  size = "sm",
-}) => {
+// @params size: xs | sm | md | lg | xl
+
+export const Logo = ({ size = "sm" }) => {
   const classHelper = BEMHelper("logo");
 
   return (

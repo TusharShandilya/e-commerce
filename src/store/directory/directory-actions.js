@@ -1,6 +1,6 @@
 import { DirectoryActionTypes as action } from "./directory-types";
 import { getAllCategories } from "../../api/axios";
-import { apiStatus } from "../../config/contants";
+import { apiStatus } from "../../config/constants";
 
 const storeCategories = (status, payload) => {
   switch (status) {

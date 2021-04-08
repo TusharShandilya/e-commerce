@@ -1,4 +1,4 @@
-import { apiStatus } from "../../config/contants";
+import { apiStatus } from "../../config/constants";
 import { DirectoryActionTypes as actions } from "./directory-types";
 import { populateCategories } from "./directory-utils";
 

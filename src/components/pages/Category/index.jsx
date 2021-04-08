@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { apiStatus } from "../../../config/contants";
+
+import { apiStatus } from "../../../config/constants";
 
 import { Heading, Loader, Page, PageHeading } from "../../common";
 

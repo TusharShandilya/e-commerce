@@ -1,10 +1,10 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { apiStatus } from "../../../../config/contants";
 
+import { apiStatus } from "../../../../config/constants";
 import { BEMHelper } from "../../../../utils";
-import Loader from "../../../common/Loader";
+
+import { Loader } from "../../../common";
 
 import "./styles.scss";
 

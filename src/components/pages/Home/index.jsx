@@ -1,10 +1,9 @@
-import React from "react";
-import { Heading } from "../../common";
+import { Heading, Page } from "../../common";
 
 export const Home = () => {
   return (
-    <>
+    <Page>
       <Heading style={{ paddingBottom: "200vh" }}>HOME</Heading>
-    </>
+    </Page>
   );
 };

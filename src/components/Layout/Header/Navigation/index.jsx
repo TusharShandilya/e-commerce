@@ -1,11 +1,9 @@
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { apiStatus } from "../../../../config/contants";
 
+import { apiStatus } from "../../../../config/constants";
 import { BEMHelper } from "../../../../utils";
+
 import Loader from "../../../common/Loader";
 
 import "./styles.scss";
