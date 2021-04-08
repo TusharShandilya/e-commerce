@@ -1,0 +1,22 @@
+@import "../../../styles/abstracts/index";
+
+.page-heading {
+  background-image: url(../../../assets/illustrations/splash-1.png),
+    url(../../../assets/illustrations/splash-1.png);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, no-repeat;
+  width: 100%;
+  background-color: $clr-bg-secondary;
+
+  padding: calculateRem(70);
+
+  &__content {
+    width: 100%;
+    max-width: $app-width;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

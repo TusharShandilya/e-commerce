@@ -11,7 +11,7 @@ export const Layout = ({ children }) => {
   return (
     <div className={classHelper("")}>
       <Header />
-      <main className="page">{children}</main>
+      <main className="main">{children}</main>
       <Footer />
     </div>
   );

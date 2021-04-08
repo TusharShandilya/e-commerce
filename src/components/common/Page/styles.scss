@@ -1,0 +1,11 @@
+@import "../../../styles/abstracts/index";
+
+.page {
+  width: 100%;
+  max-width: $app-width;
+
+  margin: auto;
+
+  padding-left: calculateRem(24);
+  padding-right: calculateRem(24);
+}
