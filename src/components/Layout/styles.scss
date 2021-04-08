@@ -10,8 +10,16 @@
   flex: 1;
   width: 100%;
   max-width: $app-width;
+
   margin: auto;
+  margin-top: calculateRem(140);
 
   padding-left: calculateRem(24);
   padding-right: calculateRem(24);
+}
+
+@include respond(touch-device) {
+  .page {
+    margin-top: calculateRem(80);
+  }
 }

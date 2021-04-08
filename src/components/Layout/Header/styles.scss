@@ -1,12 +1,19 @@
 @import "../../../styles/abstracts/index";
 
 .header {
+  background-color: $clr-bg-primary;
   border-top: calculateRem(3) solid $clr-primary;
   border-bottom: calculateRem(3) solid $clr-border;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: calculateRem(140);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   &__content {
     width: 100%;
@@ -26,5 +33,11 @@
   &__menu {
     display: flex;
     align-items: center;
+  }
+}
+
+@include respond(touch-device) {
+  .header {
+    height: calculateRem(80);
   }
 }

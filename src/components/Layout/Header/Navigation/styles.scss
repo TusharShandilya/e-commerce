@@ -3,7 +3,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  padding-top: calculateRem(20);
+  padding-top: calculateRem(30);
 
   @include fontSize(16);
   font-weight: 600;
