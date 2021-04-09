@@ -1,0 +1,24 @@
+@import "../../../styles/abstracts/index";
+
+.category-page {
+  position: relative;
+  padding-top: calculateRem(80);
+  padding-bottom: calculateRem(80);
+
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: calculateRem(56);
+
+  &__nav {
+    align-self: start;
+    position: sticky;
+    top: calculateRem(170);
+  }
+
+  .breadcrumbs {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+  }
+}

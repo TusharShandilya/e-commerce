@@ -9,12 +9,3 @@
   padding-left: calculateRem(24);
   padding-right: calculateRem(24);
 }
-
-.page {
-  position: relative;
-  .breadcrumbs {
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-  }
-}

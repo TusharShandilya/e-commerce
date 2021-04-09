@@ -1,13 +1,24 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 import { apiStatus } from "../../../config/constants";
+import { getProducts } from "../../../store/shop/shop-actions";
+import { BEMHelper } from "../../../utils";
 
 import { Breadcrumbs, Heading, Loader, Page, PageHeading } from "../../common";
+import ProductList from "../../common/ProductList";
+
+import "./styles.scss";
 
 export const Category = () => {
+  const dispatch = useDispatch();
   const { categories, status } = useSelector((state) => state.directory);
+  const { products, status: productsStatus } = useSelector(
+    (state) => state.shop
+  );
   const { categoryName } = useParams();
+  const classHelper = BEMHelper("category-page");
 
   const pageTitle =
     status === apiStatus.SUCCESS ? (
@@ -19,6 +30,10 @@ export const Category = () => {
 
   const breadcrumbData = [{ title: pageTitle }];
 
+  useEffect(() => {
+    dispatch(getProducts(categoryName));
+  }, [categoryName]);
+
   return (
     <>
       <PageHeading>
@@ -29,8 +44,14 @@ export const Category = () => {
           )}
         </Heading>
       </PageHeading>
-      <Page>
+      <Page className={classHelper("")}>
         <Breadcrumbs data={breadcrumbData} />
+        <aside className={classHelper("nav")}>hi</aside>
+        {productsStatus === apiStatus.SUCCESS ? (
+          <ProductList data={products} />
+        ) : (
+          ""
+        )}
       </Page>
     </>
   );

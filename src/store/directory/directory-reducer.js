@@ -4,13 +4,13 @@ import { populateCategories } from "./directory-utils";
 
 // @params error: string | null
 
-const initalState = {
+const initialState = {
   categories: [],
   status: apiStatus.IDLE,
   error: null,
 };
 
-export const directoryReducer = (state = initalState, action) => {
+export const directoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.GET_CATEGORIES_LOAD:
       return {

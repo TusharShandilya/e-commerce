@@ -1,0 +1,15 @@
+@import "../../../styles/abstracts/index";
+
+.product-card {
+  padding: calculateRem(16);
+  border-radius: calculateRem(8);
+  border: calculateRem(2) solid $clr-border;
+
+  &__image-wrapper {
+    width: 3rem;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
