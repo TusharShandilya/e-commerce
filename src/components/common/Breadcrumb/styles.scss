@@ -1,0 +1,36 @@
+@import "../../../styles/abstracts/index";
+
+.breadcrumbs {
+  background: $clr-bg-primary;
+  padding: calculateRem(16) calculateRem(24);
+  box-shadow: 0 calculateRem(10) calculateRem(30) 0 $clr-neutral-20;
+  display: inline-block;
+  border-radius: 200rem;
+
+  &__crumb {
+    text-transform: capitalize;
+
+    &:link,
+    &:active,
+    &:visited {
+      color: $clr-text;
+    }
+
+    &:first-child {
+      color: $clr-text-muted;
+    }
+
+    &:not(:first-child) {
+      @include fontSize(14);
+      font-weight: bold;
+      &::before {
+        content: "\\";
+
+        @include fontSize(12);
+
+        margin-left: calculateRem(5);
+        margin-right: calculateRem(5);
+      }
+    }
+  }
+}

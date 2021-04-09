@@ -3,33 +3,35 @@ import { useParams } from "react-router";
 
 import { apiStatus } from "../../../config/constants";
 
-import { Heading, Loader, Page, PageHeading } from "../../common";
+import { Breadcrumbs, Heading, Loader, Page, PageHeading } from "../../common";
 
 export const Category = () => {
   const { categories, status } = useSelector((state) => state.directory);
   const { categoryName } = useParams();
 
   const pageTitle =
-    status === apiStatus.LOADING ? (
-      <Loader />
+    status === apiStatus.SUCCESS ? (
+      categories.filter((category) => category.linkUrl === categoryName)[0]
+        ?.title
     ) : (
-      <>
-        {
-          categories.filter((category) => category.linkUrl === categoryName)[0]
-            ?.title
-        }
-        <span className="is-primary">.</span>
-      </>
+      <Loader />
     );
+
+  const breadcrumbData = [{ title: pageTitle }];
 
   return (
     <>
       <PageHeading>
         <Heading size="1" className="is-text-capitalise has-bg-secondary">
           {pageTitle}
+          {status === apiStatus.SUCCESS && (
+            <span className="is-primary">.</span>
+          )}
         </Heading>
       </PageHeading>
-      <Page>Category</Page>
+      <Page>
+        <Breadcrumbs data={breadcrumbData} />
+      </Page>
     </>
   );
 };
