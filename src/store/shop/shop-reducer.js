@@ -1,8 +1,9 @@
 import { apiStatus } from "../../config/constants";
 import { ShopActionTypes as actions } from "./shop-types";
+import { populateShop } from "./shop-utils";
 
 const initialState = {
-  products: [],
+  collections: {},
   status: apiStatus.IDLE,
   error: null,
 };
@@ -12,7 +13,12 @@ export const shopReducer = (state = initialState, action) => {
     case actions.GET_PRODUCT_LOAD:
       return { ...state, status: apiStatus.LOADING };
     case actions.GET_PRODUCT_SUCCESS:
-      return { ...state, status: apiStatus.SUCCESS, products: action.payload };
+      const newCollection = populateShop(action.payload);
+      return {
+        ...state,
+        status: apiStatus.SUCCESS,
+        collections: { ...state.collections, ...newCollection },
+      };
     case actions.GET_PRODUCT_ERROR:
       return { ...state, status: apiStatus.ERROR, error: action.payload };
     default:

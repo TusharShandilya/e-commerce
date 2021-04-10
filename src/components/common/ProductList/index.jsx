@@ -1,7 +1,3 @@
-import { BEMHelper } from "../../../utils";
-import ProductCard from "../ProductCard";
-
-import "./styles.scss";
 /*
 data: 
   {
@@ -13,17 +9,35 @@ data:
     title: string
   }
 */
+import { BEMHelper } from "../../../utils";
+
+import { Button } from "../Button";
+import { Heading } from "../Heading";
+import { ProductCard } from "../ProductCard";
+
+import "./styles.scss";
+import outOfStock from "../../../assets/illustrations/empty-stock.svg";
 
 export const ProductList = ({ data, className, ...rest }) => {
   const classHelper = BEMHelper("product-list");
 
   return (
     <div className={classHelper("", [], className)}>
-      {data.map((product) => (
-        <div className={classHelper("item")}>
-          <ProductCard product={product} key={product.id} />
+      {!!data.length ? (
+        data.map((product) => (
+          <div className={classHelper("item")} key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        ))
+      ) : (
+        <div className={classHelper("empty")}>
+          <img src={outOfStock} alt={"out of stock"} />
+          <Heading>Out of stock!</Heading>
+          <Button isLink to="/" variant="outlined">
+            Go to Home
+          </Button>
         </div>
-      ))}
+      )}
     </div>
   );
 };

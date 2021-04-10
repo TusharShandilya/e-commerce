@@ -22,7 +22,7 @@ import "./styles.scss";
 export const Category = () => {
   const dispatch = useDispatch();
   const { categories, status } = useSelector((state) => state.directory);
-  const { products, status: productsStatus } = useSelector(
+  const { collections, status: productsStatus } = useSelector(
     (state) => state.shop
   );
   const { categoryName } = useParams();
@@ -39,7 +39,9 @@ export const Category = () => {
   const breadcrumbData = [{ title: pageTitle }];
 
   useEffect(() => {
-    dispatch(getProducts(categoryName));
+    if (!(categoryName in collections)) {
+      dispatch(getProducts(categoryName));
+    }
   }, [categoryName]);
 
   return (
@@ -73,9 +75,13 @@ export const Category = () => {
           )}
         </Box>
         {productsStatus === apiStatus.SUCCESS ? (
-          <ProductList data={products} />
+          <ProductList
+            data={categoryName in collections ? collections[categoryName] : []}
+          />
         ) : (
-          ""
+          <div className={classHelper("loading")}>
+            <Loader />
+          </div>
         )}
       </Page>
     </>

@@ -26,7 +26,7 @@
     padding-top: calculateRem(10);
     padding-bottom: calculateRem(10);
 
-    transition: all 0.2s;
+    transition: color 0.2s;
 
     color: $clr-text-muted;
     &:hover {
@@ -38,6 +38,13 @@
       padding-left: calculateRem(8);
       border-left: calculateRem(3) solid $clr-primary;
     }
+  }
+
+  .category-page__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calculateRem(60);
   }
 
   .breadcrumbs {

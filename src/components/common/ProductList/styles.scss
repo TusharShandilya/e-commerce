@@ -9,4 +9,17 @@
   &__item {
     grid-column-start: span 4;
   }
+
+  &__empty {
+    grid-column: 3/10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 70%;
+      height: auto;
+    }
+  }
 }
