@@ -1,36 +1,57 @@
-import { BEMHelper } from "../../../utils";
-import Box from "../Box";
-import { Heading } from "../Heading";
-import { Paragraph } from "../Paragraph";
-
-import "./styles.scss";
 /*
 
-    @params category: string
-    @params description: string
-    @params id: string
-    @params image: string
-    @params price: number
-    @params title: string
+    @params product: 
+              { 
+                category: string
+                description: string
+                id: string
+                image: string
+                price: number
+                title: string
+              }
 
 */
+import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
+import { BEMHelper } from "../../../utils";
+
+import { Box } from "../Box";
+import { Button } from "../Button";
+import Loader from "../Loader";
+
+import "./styles.scss";
 
 export const ProductCard = ({
-  product: { category, description, id, image, price, title },
+  product: { id, image, price, title },
   className,
   ...rest
 }) => {
   const classHelper = BEMHelper("product-card");
 
+  const productLink = `/product/${id}`;
+
   return (
-    <Box>
-      <Heading>{title}</Heading>
-      <Heading size="5">{category}</Heading>
-      <Paragraph>{description}</Paragraph>
-      <figure className={classHelper("image-wrapper")}>
-        <img src={image} alt={title} />
-      </figure>
-      <Paragraph>${price}</Paragraph>
+    <Box className={classHelper("")}>
+      <div className={classHelper("inspect")}>
+        <FontAwesomeIcon icon={faSearchPlus} />
+      </div>
+      <Link to={productLink} className={classHelper("image-wrapper")}>
+        <figure className={classHelper("image")}>
+          <img src={image} alt={title} />
+        </figure>
+      </Link>
+      <Link to={productLink} className={classHelper("description")}>
+        <div className={classHelper("title")}>{title}</div>
+        <div className={classHelper("price-wrapper")}>
+          {/* <span className={classHelper("price", ["discount"])}></span> */}
+          <div className={classHelper("price")}>$ {price} USD</div>
+        </div>
+      </Link>
+      <Button to={productLink} isLink variant="underlined">
+        View Product
+      </Button>
     </Box>
   );
 };

@@ -79,23 +79,47 @@
     position: relative;
     padding: calculateRem(4) 0;
     margin-bottom: 2px;
+    text-align: center;
+
+    overflow: hidden;
+    font-weight: bold;
+
+    &:active,
+    &:link,
+    &:visited {
+      color: $clr-text;
+    }
 
     &::before {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      background-color: $clr-text-muted;
+      height: calculateRem(3);
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      transition: all 0.2s;
+    }
+    &::after {
       z-index: -1;
       position: absolute;
       content: "";
       background-color: $clr-primary;
       height: calculateRem(3);
       width: 100%;
+      left: -100%;
       bottom: 0;
       transition: all 0.2s;
     }
 
     &:hover {
-      color: $clr-text-inverted;
+      &::after {
+        left: 0;
+      }
 
       &::before {
-        height: 100%;
+        left: 100%;
       }
     }
 

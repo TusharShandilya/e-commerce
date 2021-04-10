@@ -20,7 +20,9 @@ export const ProductList = ({ data, className, ...rest }) => {
   return (
     <div className={classHelper("", [], className)}>
       {data.map((product) => (
-        <ProductCard product={product} key={product.id} />
+        <div className={classHelper("item")}>
+          <ProductCard product={product} key={product.id} />
+        </div>
       ))}
     </div>
   );

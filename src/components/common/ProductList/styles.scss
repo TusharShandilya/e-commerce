@@ -1,7 +1,12 @@
 @import "../../../styles/abstracts/index";
 
 .product-list {
-  //   display: grid;
-  //   grid-template-columns: repeat(3, 1fr);
-  //   gap: calculateRem(16);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: calculateRem(10);
+
+  &__item {
+    grid-column-start: span 4;
+  }
 }
