@@ -14,11 +14,36 @@
     align-self: start;
     position: sticky;
     top: calculateRem(170);
+
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+  }
+
+  &__nav-link {
+    font-weight: bold;
+    margin-left: calculateRem(10);
+    padding-top: calculateRem(10);
+    padding-bottom: calculateRem(10);
+
+    transition: all 0.2s;
+
+    color: $clr-text-muted;
+    &:hover {
+      color: $clr-text;
+    }
+
+    &--active {
+      color: $clr-text;
+      padding-left: calculateRem(8);
+      border-left: calculateRem(3) solid $clr-primary;
+    }
   }
 
   .breadcrumbs {
     position: absolute;
     top: 0;
+    left: calculateRem(24);
     transform: translateY(-50%);
   }
 }

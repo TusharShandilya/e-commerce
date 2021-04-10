@@ -1,4 +1,5 @@
 import { BEMHelper } from "../../../utils";
+import Box from "../Box";
 import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
 
@@ -22,7 +23,7 @@ export const ProductCard = ({
   const classHelper = BEMHelper("product-card");
 
   return (
-    <div className={classHelper("", [], className)}>
+    <Box>
       <Heading>{title}</Heading>
       <Heading size="5">{category}</Heading>
       <Paragraph>{description}</Paragraph>
@@ -30,7 +31,7 @@ export const ProductCard = ({
         <img src={image} alt={title} />
       </figure>
       <Paragraph>${price}</Paragraph>
-    </div>
+    </Box>
   );
 };
 

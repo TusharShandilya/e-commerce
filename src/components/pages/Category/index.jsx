@@ -1,13 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import { apiStatus } from "../../../config/constants";
 import { getProducts } from "../../../store/shop/shop-actions";
 import { BEMHelper } from "../../../utils";
 
-import { Breadcrumbs, Heading, Loader, Page, PageHeading } from "../../common";
-import ProductList from "../../common/ProductList";
+import {
+  Box,
+  Breadcrumbs,
+  Heading,
+  Loader,
+  Page,
+  PageHeading,
+  ProductList,
+} from "../../common";
 
 import "./styles.scss";
 
@@ -46,7 +54,24 @@ export const Category = () => {
       </PageHeading>
       <Page className={classHelper("")}>
         <Breadcrumbs data={breadcrumbData} />
-        <aside className={classHelper("nav")}>hi</aside>
+        <Box as="aside" className={classHelper("nav")}>
+          <Heading size="4">Categories</Heading>
+          {status === apiStatus.SUCCESS ? (
+            categories.map(({ linkUrl, title }, idx) => (
+              <NavLink
+                activeClassName={classHelper("nav-link", ["active"])}
+                className={classHelper("nav-link")}
+                to={linkUrl}
+              >
+                {title}
+              </NavLink>
+            ))
+          ) : (
+            <div className={classHelper("nav-link", ["active"])}>
+              <Loader />
+            </div>
+          )}
+        </Box>
         {productsStatus === apiStatus.SUCCESS ? (
           <ProductList data={products} />
         ) : (
