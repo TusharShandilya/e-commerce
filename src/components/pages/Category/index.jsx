@@ -10,6 +10,7 @@ import { BEMHelper } from "../../../utils";
 import {
   Box,
   Breadcrumbs,
+  Button,
   Heading,
   Loader,
   Page,
@@ -18,6 +19,7 @@ import {
 } from "../../common";
 
 import "./styles.scss";
+import outOfStock from "../../../assets/illustrations/empty-stock.svg";
 
 export const Category = () => {
   const dispatch = useDispatch();
@@ -76,7 +78,16 @@ export const Category = () => {
         </Box>
         {productsStatus === apiStatus.SUCCESS ? (
           <ProductList
-            data={categoryName in collections ? collections[categoryName] : []}
+            data={categoryName in collections && collections[categoryName]}
+            noData={
+              <>
+                <img src={outOfStock} alt={"out of stock"} />
+                <Heading>Out of stock!</Heading>
+                <Button isLink to="/" variant="outlined">
+                  Go to Home
+                </Button>
+              </>
+            }
           />
         ) : (
           <div className={classHelper("loading")}>

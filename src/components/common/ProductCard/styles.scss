@@ -63,11 +63,10 @@
     height: calculateRem(240);
     border-radius: calculateRem(8);
 
-    overflow: hidden;
-
     img {
       height: 100%;
       width: auto;
+      max-width: 100%;
 
       background: $clr-bg-secondary;
     }

@@ -4,6 +4,7 @@ import { populateShop } from "./shop-utils";
 
 const initialState = {
   collections: {},
+  allCategories: [],
   status: apiStatus.IDLE,
   error: null,
 };
@@ -13,11 +14,14 @@ export const shopReducer = (state = initialState, action) => {
     case actions.GET_PRODUCT_LOAD:
       return { ...state, status: apiStatus.LOADING };
     case actions.GET_PRODUCT_SUCCESS:
-      const newCollection = populateShop(action.payload);
+      const [newCollection, newCategories] = populateShop(action.payload);
+
+      console.log("HI", newCollection);
       return {
         ...state,
         status: apiStatus.SUCCESS,
         collections: { ...state.collections, ...newCollection },
+        allCategories: state.allCategories.concat(newCategories),
       };
     case actions.GET_PRODUCT_ERROR:
       return { ...state, status: apiStatus.ERROR, error: action.payload };

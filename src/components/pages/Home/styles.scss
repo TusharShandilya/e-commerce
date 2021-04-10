@@ -1,0 +1,23 @@
+@import "../../../styles/abstracts/index";
+
+.home-page {
+  &__section {
+    margin-top: calculateRem(200);
+    margin-bottom: calculateRem(200);
+
+    &:first-child {
+      margin-top: calculateRem(50);
+    }
+
+    .product-list {
+      grid-gap: calculateRem(20);
+      &__item {
+        grid-column-start: span 3;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: calculateRem(50);
+  }
+}
