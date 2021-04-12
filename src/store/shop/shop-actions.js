@@ -1,7 +1,6 @@
 import { ShopActionTypes as action } from "./shop-types";
 import { apiStatus } from "../../config/constants";
 import { getAllProducts, getCategoryProducts } from "../../api/axios";
-import { populateShop } from "./shop-utils";
 
 const storeProducts = (status, payload) => {
   switch (status) {

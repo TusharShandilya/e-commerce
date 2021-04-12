@@ -19,7 +19,6 @@ import { BEMHelper } from "../../../utils";
 
 import { Box } from "../Box";
 import { Button } from "../Button";
-import Loader from "../Loader";
 
 import "./styles.scss";
 

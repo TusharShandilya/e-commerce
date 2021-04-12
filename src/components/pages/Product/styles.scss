@@ -1,0 +1,30 @@
+@import "../../../styles/abstracts/index";
+
+.product-page {
+  .breadcrumbs {
+    margin-top: calculateRem(20);
+  }
+
+  &__section {
+    display: flex;
+    width: 100%;
+    margin-top: calculateRem(100);
+    margin-bottom: calculateRem(200);
+  }
+
+  &__section-box {
+    flex: 0 0 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 50%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

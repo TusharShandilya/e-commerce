@@ -3,6 +3,7 @@ import {
   allCategoriesEndpoint,
   getAllProductsEndpoint,
   getCategoryProductsEndpoint,
+  getSingleProductEndpoint,
 } from "./routes";
 
 export const getAllCategories = async () => {
@@ -27,6 +28,16 @@ export const getAllProducts = async () => {
 
 export const getCategoryProducts = async (category) => {
   const result = await axios.get(getCategoryProductsEndpoint(category));
+
+  //   TODO: implement negative scenarios
+  return {
+    ok: true,
+    data: result.data,
+  };
+};
+
+export const getSingleProduct = async (productID) => {
+  const result = await axios.get(getSingleProductEndpoint(productID));
 
   //   TODO: implement negative scenarios
   return {

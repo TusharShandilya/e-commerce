@@ -34,3 +34,8 @@ export const tabData = (description) => [
     ),
   },
 ];
+
+export const breadcrumbData = ({ category, title }) => [
+  { title: category, path: `/category/${category}` },
+  { title: title },
+];

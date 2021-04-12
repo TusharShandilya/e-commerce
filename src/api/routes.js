@@ -15,3 +15,7 @@ export const getAllProductsEndpoint = () => {
 export const getCategoryProductsEndpoint = (category) => {
   return config.endpoint + service.products + "/category/" + category;
 };
+
+export const getSingleProductEndpoint = (id) => {
+  return config.endpoint + service.products + "/" + id;
+};

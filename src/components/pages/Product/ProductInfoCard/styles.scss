@@ -1,0 +1,7 @@
+@import "../../../../styles/abstracts/index";
+
+.product-info {
+  border-radius: calculateRem(16);
+  box-shadow: 0 calculateRem(10) calculateRem(20) 0 $clr-neutral-10;
+  padding: calculateRem(40);
+}
