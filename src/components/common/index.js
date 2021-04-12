@@ -8,3 +8,4 @@ export * from "./Page";
 export * from "./PageHeading";
 export * from "./Paragraph";
 export * from "./ProductList";
+export * from "./Tabs";

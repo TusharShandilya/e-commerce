@@ -1,6 +1,4 @@
 export const populateShop = (products) => {
-  console.log("PRODUCTS: ", products);
-
   const categories = [];
   const collection = products.reduce((acc, prod) => {
     if (prod.category in acc) {

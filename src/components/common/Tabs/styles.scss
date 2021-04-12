@@ -1,0 +1,42 @@
+@import "../../../styles/abstracts/index";
+
+.tabs {
+  display: grid;
+
+  grid-template-rows: auto auto;
+  grid-row-gap: calculateRem(16);
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    transition: all 0.2s;
+    display: inline-block;
+    cursor: pointer;
+
+    @include fontSize(18);
+    color: $clr-text-muted;
+
+    border: calculateRem(2) solid transparent;
+    border-radius: 200rem;
+
+    padding: calculateRem(12) calculateRem(24);
+
+    &:hover {
+      color: $clr-text;
+    }
+
+    &:not(:last-child) {
+      margin-right: calculateRem(10);
+    }
+
+    &--active {
+      border: calculateRem(2) solid $clr-text;
+      color: $clr-text;
+    }
+  }
+
+  &__content {
+  }
+}

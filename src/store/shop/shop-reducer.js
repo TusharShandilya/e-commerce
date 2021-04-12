@@ -16,7 +16,6 @@ export const shopReducer = (state = initialState, action) => {
     case actions.GET_PRODUCT_SUCCESS:
       const [newCollection, newCategories] = populateShop(action.payload);
 
-      console.log("HI", newCollection);
       return {
         ...state,
         status: apiStatus.SUCCESS,

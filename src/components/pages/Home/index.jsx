@@ -21,10 +21,11 @@ export const Home = () => {
 
   const productData = Object.values(collections).flat().slice(0, 8);
 
-  console.log(productData);
-
   return (
     <Page className={classHelper("")}>
+      <section className={classHelper("section")}>
+        <Directory className={classHelper("")} />
+      </section>
       {status === apiStatus.SUCCESS && !!productData.length && (
         <section className={classHelper("section")}>
           <Heading
@@ -36,9 +37,6 @@ export const Home = () => {
           <ProductList data={productData} />
         </section>
       )}
-      <section className={classHelper("section")}>
-        <Directory className={classHelper("")} />
-      </section>
     </Page>
   );
 };
