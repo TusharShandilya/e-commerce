@@ -1,0 +1,106 @@
+@import "../../../styles/abstracts/index";
+
+.input {
+  &__label {
+    @include fontSize(14);
+    margin-left: calculateRem(30);
+    font-weight: bold;
+    text-transform: capitalize;
+
+    &--required {
+      position: relative;
+      &::after {
+        @include fontSize(12);
+        content: "*";
+      }
+    }
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__field {
+    width: 100%;
+    padding: calculateRem(8) calculateRem(16);
+
+    @include fontSize(16);
+    font-family: $font-primary;
+
+    border-radius: 200rem;
+    border: 2px solid $clr-neutral-30;
+
+    outline: none;
+
+    &::placeholder {
+      color: $clr-text-muted;
+    }
+
+    &--has-lead {
+      padding-left: calculateRem(36);
+    }
+
+    &--is-password {
+      padding-right: calculateRem(36);
+    }
+  }
+
+  &__lead-icon {
+    color: $clr-text-muted;
+    position: absolute;
+    top: 50%;
+    left: calculateRem(14);
+    transform: translateY(-50%);
+  }
+
+  &__password-icon {
+    color: $clr-text-muted;
+    position: absolute;
+    top: 50%;
+    right: calculateRem(14);
+    transform: translateY(-50%);
+
+    cursor: pointer;
+  }
+
+  &__error {
+    display: block;
+    @include fontSize(14);
+    font-weight: bold;
+    color: $clr-error-100;
+    margin-left: calculateRem(30);
+  }
+
+  &__helper {
+    margin-left: calculateRem(30);
+    display: block;
+    @include fontSize(12);
+    color: $clr-text-muted;
+  }
+}
+
+.input--error {
+  .input {
+    &__label {
+      color: $clr-error-100;
+    }
+
+    &__field {
+      border: 2px solid rgba($clr-error-100, 0.5);
+    }
+  }
+}
+
+.input--disabled {
+  opacity: 0.5;
+  .input {
+    &__field {
+      background-color: $clr-neutral-10;
+      pointer-events: none;
+    }
+
+    &__password-icon {
+      cursor: default;
+    }
+  }
+}
