@@ -22,3 +22,7 @@ export const BEMHelper = (block) => (
 export const convertKebabCase = (text) => {
   return text ? text.toLowerCase().split(" ").join("-") : "";
 };
+
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};

@@ -1,0 +1,28 @@
+@import "../../../../styles/abstracts/index";
+
+.product-modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: calculateRem(50);
+
+  &__box {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__image {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 100%;
+      max-width: 100%;
+    }
+  }
+}

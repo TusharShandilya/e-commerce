@@ -14,26 +14,33 @@
 import { faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useModal } from "../../../library/hooks";
 
 import { BEMHelper } from "../../../utils";
 
 import { Box } from "../Box";
 import { Button } from "../Button";
+import { Modal } from "../Modal";
+import ProductModal from "./ProductModal";
 
 import "./styles.scss";
 
-export const ProductCard = ({
-  product: { id, image, price, title },
-  className,
-  ...rest
-}) => {
+export const ProductCard = ({ product, className }) => {
+  const { isModalActive, toggleModal } = useModal();
+  const { id, image, price, title } = product;
+
   const classHelper = BEMHelper("product-card");
 
   const productLink = `/product/${id}`;
 
   return (
-    <Box className={classHelper("")}>
-      <div className={classHelper("inspect")}>
+    <Box className={classHelper("", [], className)}>
+      {isModalActive && (
+        <Modal closeModal={toggleModal}>
+          <ProductModal product={product} />{" "}
+        </Modal>
+      )}
+      <div className={classHelper("inspect")} onClick={toggleModal}>
         <FontAwesomeIcon icon={faSearchPlus} />
       </div>
       <Link to={productLink} className={classHelper("image-wrapper")}>

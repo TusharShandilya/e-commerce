@@ -1,0 +1,59 @@
+@import "../../../styles/abstracts/index";
+
+.modal {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 400;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__overlay {
+    position: absolute;
+
+    background-color: $clr-neutral-50;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  &__container {
+    z-index: 401;
+    border-radius: calculateRem(16);
+    background-color: $clr-bg-primary;
+
+    max-height: 80%;
+    min-height: 30%;
+
+    max-width: 80%;
+    min-width: 30%;
+
+    padding: calculateRem(25);
+    position: relative;
+
+    overflow: auto;
+  }
+
+  &__close-btn {
+    color: $clr-primary;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    position: absolute;
+    top: calculateRem(12);
+    right: calculateRem(12);
+
+    @include fontSize(20);
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+      transform: rotate(120deg);
+    }
+  }
+}
